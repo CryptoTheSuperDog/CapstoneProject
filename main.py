@@ -2,24 +2,21 @@
 # What this code is meant to do is use Generative Adversarial Networks in order to create a climate for the
 # Trappist1-e exoplanet based off of the data we currently have on the planet and a photo-chemical model that can
 # calculate all of the appropriate features for the atmosphere
-
-import sys
+import os
+cwd = os.getcwd()
+import numpy as np
 import pandas as pd
-from typing import TextIO
+import sys
+sys.path.insert(1, f"{cwd}/timegan")
+import tensorflow as tf
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 from modules import takeData, atmos, generateData
-sys.path.insert(1, "C:/Users/Administrator/timegan")
-sys.path.insert(2, "C:/Users/Administrator/atmos")
-sys.path.insert(3, "C:/Users/Administrator/timegan/metrics")
-from timegan import timegan
-from metrics import discriminative_metrics
-from predictive_metrics import predictive_score_metrics
-from visualization_metrics import visualization
-from data_loading import MinMaxScaler
+from metrics import visualization_metrics, predictive_metrics, discriminative_metrics
 
 
 if __name__ == "__main__":
     # First run atmos to calculate needed elements for analysis
-    atmos("mars")
+    # atmos("trappist1e")
 
     # Tables names of the out.out file, no commas or lowercase or special characters in title
     table_names: dict = {1: " MIXING RATIOS OF LONG",
@@ -42,12 +39,32 @@ if __name__ == "__main__":
     # Grab the specific data from the out.out file that we need for the new climates
     takeData(13,  "out.out", table_names)
 
-    data = pd.read_csv("C:/Users/Administrator/PycharmProjects/Trappist_Climate_Code/Data.txt",
-                       skiprows=3, header=None, delimiter=" ")
-    temps = pd.DataFrame(data[1])
+    data = pd.read_csv(f"{cwd}/Data.txt", skiprows=3, header=None, delimiter=" ")
+    temps = pd.DataFrame(data)
+    seq_length = 1
 
     # generate new data instances
-    generateData(temps)
+    new_data = np.array(temps).reshape((temps.shape[0], seq_length, temps.shape[1]))
+    gen_data = generateData(new_data)
 
-# TODO: get our data pre-processed correctly for timegan
-# TODO: change all file paths from hardcoded to os method of getting base directory and then adding other file paths
+    # print discriminative and predictive score
+    metric_iteration = 2
+
+    discriminative_score = list()
+    for _ in range(metric_iteration):
+        temp_disc = discriminative_metrics.discriminative_score_metrics(new_data, gen_data)
+        discriminative_score.append(temp_disc)
+
+    print('Discriminative score: ' + str(np.round(np.mean(discriminative_score), 4)))
+
+    # predictive_score = list()
+    # for tt in range(metric_iteration):
+    #     temp_pred = predictive_metrics.predictive_score_metrics(new_data, gen_data)
+    #     predictive_score.append(temp_pred)
+    #
+    # print('Predictive score: ' + str(np.round(np.mean(predictive_score), 4)))
+
+    # visualization of data
+
+    # visualization_metrics.visualization(new_data, gen_data, 'pca')
+    visualization_metrics.visualization(new_data, gen_data, 'tsne')
