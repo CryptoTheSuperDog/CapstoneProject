@@ -16,7 +16,7 @@ from metrics import visualization_metrics, predictive_metrics, discriminative_me
 
 if __name__ == "__main__":
     # First run atmos to calculate needed elements for analysis
-    # atmos("trappist1e")
+    atmos("trappist1e")
 
     # Tables names of the out.out file, no commas or lowercase or special characters in title
     table_names: dict = {1: " MIXING RATIOS OF LONG",
