@@ -1,12 +1,23 @@
 G, found on https://en.wikipedia.org/wiki/TRAPPIST-1e 93% gravity of earth
-FSCALE, ratio of planet solar flux to earths (1361 W/m^2) https://www.starrynight.com/TRAPPIST-1/PDF-ePub/Exoplanets%20-%20The%20Seven%20Earth-like%20Worlds%20of%20TRAPPIST-1%20.pdf 66% of earth
+
+FSCALE, ratio of planet solar flux to earths (1361 W/m^2) (https://www.starrynight.com/TRAPPIST-1/PDF-ePub/Exoplanets%20-%20The%20Seven%20Earth-like%20Worlds%20of%20TRAPPIST-1%20.pdf) 66% of earth
+
 ALB, surface albedo: how much irradiance is absorbed (black body 0) common assumption is 0 https://en.wikipedia.org/wiki/TRAPPIST-1e#:~:text=The%20planet%20has%20a%20calculated,given%20an%20albedo%20of%200.&text=If%20TRAPPIST-1e%20has%20a,warmer%20than%20its%20equilibrium%20temperature.
+
 Ztrop, height of troposphere, assuming earths height
+
 FAR, argon partial pressure (no source on this, leave as is)
+
 R0, radius 92% earth (5.861) https://www.starrynight.com/TRAPPIST-1/PDF-ePub/Exoplanets%20-%20The%20Seven%20Earth-like%20Worlds%20of%20TRAPPIST-1%20.pdf
+
 P0, surface pressure, assume 1atm like earlier models https://www.pnas.org/content/115/2/260 
-TimeGA, dont touch
+
+TimeGA, Number of billions of years
+
 IREset, dont touch
+
 Pstar, 20 for MV8
+
 IHZscale, dont touch
+
 UVscale, assume 1 like other planets, simulate flares
