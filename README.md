@@ -1,6 +1,6 @@
 # CapstoneProject
 
-This repository is part of my capstone project in the preliminary stages. We are modeling the climate of the exo-planet TRAPPIST1-e with the intention of subjecting organisms and microbes to the environment using a climate chamber. We will be using a climate modeling package written in Fortran called [Atmos](https://github.com/VirtualPlanetaryLaboratory/atmos) and a time series GAN model called [TimeGans](https://github.com/jsyoon0823/TimeGAN). Check [Trappist1_parameters.mkd](https://github.com/CryptoTheSuperDog/CapstoneProject/blob/main/Trappist_parameters.mkd) 
+This repository is part of my capstone project in the preliminary stages. We are modeling the climate of the exo-planet TRAPPIST1-e with the intention of subjecting organisms and microbes to the environment using a climate chamber. We will be using a climate modeling package written in Fortran called [Atmos](https://github.com/VirtualPlanetaryLaboratory/atmos) and a time series GAN model called [TimeGans](https://github.com/jsyoon0823/TimeGAN). Check [Trappist1_parameters.mkd](https://github.com/CryptoTheSuperDog/CapstoneProject/blob/main/Trappist_parameters.mkd) for the data for the PLANET.dat file.
 
 # Packages and Environment
 All of the code is going to be written in python but there are specific versions needed. Also there is some fortran code that Atmos must run so a fortran compiler is needed as well. 
