@@ -64,11 +64,11 @@ def atmos(planet_template, arg1="y", arg2="y", arg3="n", arg4="n"):
     file = open(f"{cwd}/atmos/RunModels.sh", "r+")
     lines = file.readlines()
     # 14, 46, 54, 61, 69
-    lines[14] = f"folder={planet_template}"
-    lines[46] = f" recompile={arg1}"
-    lines[54] = f"  run_photo={arg2}"
-    lines[61] = f"recompile={arg3}"
-    lines[69] = f"run_clima={arg4}"
+    lines[14] = f"folder={planet_template}\n"
+    lines[46] = f" recompile={arg1}\n"
+    lines[54] = f"  run_photo={arg2}\n"
+    lines[61] = f"recompile={arg3}\n"
+    lines[69] = f"run_clima={arg4}\n"
     file.close()
     file = open(f"{cwd}/atmos/RunModels.sh", "r+")
     file.writelines(lines)
