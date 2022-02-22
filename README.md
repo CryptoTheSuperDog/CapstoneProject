@@ -1,6 +1,6 @@
 # CapstoneProject
 
-This repository is part of my capstone project in the preliminary stages. We are modeling the climate of the exo-planet TRAPPIST1-e with the intention of subjecting organisms and microbes to the environment using a climate chamber. We will be using a climate modeling package written in Fortran called [Atmos](https://github.com/VirtualPlanetaryLaboratory/atmos) and a time series GAN model called [TimeGans](https://github.com/jsyoon0823/TimeGAN). Check [Trappist1_parameters.mkd](https://github.com/CryptoTheSuperDog/CapstoneProject/blob/main/Trappist_parameters.mkd) for the data for the PLANET.dat file.
+This repository is part of my capstone project at the Rochester Institute of Technology. We are modeling the climate of the exo-planet TRAPPIST1-e with the intention of subjecting organisms and microbes to the environment using a climate chamber. We will be using a climate modeling package written in Fortran called [Atmos](https://github.com/VirtualPlanetaryLaboratory/atmos) and a time series GAN model called [TimeGans](https://github.com/jsyoon0823/TimeGAN). Check [Trappist1_parameters.mkd](https://github.com/CryptoTheSuperDog/CapstoneProject/blob/main/Trappist_parameters.mkd) for the data for the PLANET.dat file if using TRAPPIST-1e.
 
 # Packages and Environment
 All of the code is going to be written in python but there are specific versions needed. Also there is some fortran code that Atmos must run so a fortran compiler is needed as well. 
@@ -15,7 +15,7 @@ All of the code is going to be written in python but there are specific versions
 * Any fortran compiler (I used [gfortran](https://gcc.gnu.org/wiki/GFortranBinaries))
 
 # Run Current code
-I need to change the hardcoded directories in the code, once I do that this line will disappear. First make sure all programs are in the same directory. 
-Create a template for the planet in the atmos/PHOTOCHEM/INPUTFILES/TEMPLATES. Specificly you want to copy and edit an existing PLANET.dat folder.
-When the code is run, a bash shell script from atmos is run and then a shell will pop up prompting for a planet template. Enter the planet model you saved in the template folder, followed by y,y,n,n. 
-That should get an atmos output and then the code will do the rest. Enjoy!
+First make sure all programs are in the same directory. 
+Create a template for the planet in the atmos/PHOTOCHEM/INPUTFILES/TEMPLATES. Specificly you want to copy and edit an existing PLANET.dat folder atmos has and change what is needed.
+Customize parameters in the main.py file based on the helpful comments
+Run and Enjoy!
